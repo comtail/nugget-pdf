@@ -1,23 +1,30 @@
-# Start-Werbung (House Ad) für Nugget PDF Reader
+# Start-Werbung von Nugget PDF Reader ändern
 
-Die App lädt bei jedem Start im Hintergrund `promo.json` von dieser Adresse:
+Die App zeigt bei jedem Start 5 Sekunden lang das Bild `werbung.jpg`.
+Wer darauf tippt, landet auf dem Link aus `promo.json`.
 
-    https://comtail.github.io/nugget-pdf/promo/promo.json
+## Bild austauschen (im Browser)
+1. Öffne https://github.com/comtail/nugget-pdf/tree/main/promo
+2. Oben rechts **Add file → Upload files**
+3. Dein neues Bild hineinziehen. **Es muss exakt `werbung.jpg` heißen** (JPG, Hochformat, ideal 1080 × 1920 px, max. 5 MB).
+4. Unten **Commit changes** klicken. Fertig.
 
-Was du dort einträgst, erscheint **ab dem nächsten App-Start** – ohne App-Update.
+## Link ändern
+1. Öffne https://github.com/comtail/nugget-pdf/blob/main/promo/promo.json
+2. Auf den **Stift** (Edit) klicken
+3. Hinter `"clickUrl":` deinen Link eintragen, z. B. `"https://deine-seite.de"` (mit Anführungszeichen, muss mit https:// beginnen)
+4. **Commit changes** klicken.
 
-| Feld               | Bedeutung                                                         |
-|--------------------|-------------------------------------------------------------------|
-| `enabled`          | `true` = Werbung zeigen, `false` = keine Werbung                  |
-| `imageUrl`         | Bild (PNG/JPG/WebP, max. 5 MB, **https**). Ideal: 1080 × 1920 px  |
-| `clickUrl`         | Wohin ein Tippen auf das Bild führt (optional)                    |
-| `durationSeconds`  | Anzeigedauer, 1–10 Sekunden                                       |
-| `skipAfterSeconds` | Ab wann „Überspringen“ möglich ist (0 = sofort)                   |
-| `backgroundColor`  | Farbe hinter dem Bild, z. B. `#17120A`                            |
-| `validFrom` / `validUntil` | Optionaler Zeitraum, Format `JJJJ-MM-TT`                  |
+## Wann sieht man die Änderung?
+GitHub braucht 1–2 Minuten zum Veröffentlichen, danach bis zu 10 Minuten Zwischenspeicher.
+Danach zeigt die App beim nächsten Start das neue Bild und den neuen Link.
+Bei sehr langsamem Internet kommt das neue Bild erst einen Start später.
 
-Tipps:
-- Neues Bild immer unter **neuem Dateinamen** hochladen (z. B. `ad-2026-12.png`) und `imageUrl` anpassen –
-  so lädt jede App das neue Bild sicher nach.
-- Datei löschen oder `enabled: false` → die Werbung verschwindet beim übernächsten Start.
-- Die App zeigt das Bild immer mit dem Hinweis „Anzeige“.
+## Weitere Einstellungen in promo.json
+| Feld               | Bedeutung                                              |
+|--------------------|--------------------------------------------------------|
+| `enabled`          | `true` = Werbung zeigen, `false` = keine Werbung        |
+| `durationSeconds`  | Anzeigedauer in Sekunden (1–10), Standard 5             |
+| `skipAfterSeconds` | Ab wann „Überspringen“ möglich ist (0 = sofort, 5 = nie vor Ende) |
+| `backgroundColor`  | Farbe hinter dem Bild, falls es den Bildschirm nicht füllt |
+| `validFrom` / `validUntil` | Optionaler Zeitraum, z. B. `"2026-12-01"`      |
