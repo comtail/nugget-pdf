@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "imageUrl": "https://comtail.github.io/nugget-pdf/promo/ad.png",
+  "clickUrl": "https://play.google.com/store/apps/details?id=com.comtail.nuggetpdf",
+  "durationSeconds": 5,
+  "skipAfterSeconds": 3,
+  "backgroundColor": "#17120A",
+  "validFrom": "",
+  "validUntil": ""
+}
